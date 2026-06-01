@@ -7,7 +7,7 @@ public class Exit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Poziom ukończony!");
+            Debug.Log("Poziom ukończony!!!");
 
             // restart sceny
             SceneManager.LoadScene(
