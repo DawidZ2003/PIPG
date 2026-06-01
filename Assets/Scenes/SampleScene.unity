@@ -539,7 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Sword
   damage: 2
-  durability: 5
+  durability: 4
 --- !u!61 &324530836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3606,6 +3606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  currentHealth: 0
 --- !u!1 &2015791328
 GameObject:
   m_ObjectHideFlags: 0
