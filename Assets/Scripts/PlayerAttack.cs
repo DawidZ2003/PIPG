@@ -8,7 +8,8 @@ public class PlayerAttack : MonoBehaviour
 
     public int damage = 1;
     public string currentWeapon = "Fists";
-    public int weaponDurability = 999;
+    public int weaponDurability = 0;
+    public bool hasWeapon = false;
 
     void Update()
     {
@@ -32,19 +33,18 @@ public class PlayerAttack : MonoBehaviour
                 ?.TakeDamage(damage);
         }
 
-        if (currentWeapon != "Fists")
+        if (hasWeapon)
         {
             weaponDurability--;
-
-            Debug.Log("Weapon: " + currentWeapon + " | Durability: " + weaponDurability);
 
             if (weaponDurability <= 0)
             {
                 currentWeapon = "Fists";
                 damage = 1;
-                weaponDurability = 999;
+                weaponDurability = 0;
+                hasWeapon = false;
 
-                Debug.Log("Broń się zepsuła! Walczysz pięściami.");
+                Debug.Log("Broń się zepsuła!");
             }
         }
     }

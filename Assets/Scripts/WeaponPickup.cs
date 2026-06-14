@@ -8,7 +8,8 @@ public class WeaponPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player"))
+            return;
 
         PlayerAttack playerAttack = other.GetComponent<PlayerAttack>();
 
@@ -17,10 +18,12 @@ public class WeaponPickup : MonoBehaviour
             playerAttack.currentWeapon = weaponName;
             playerAttack.damage = damage;
             playerAttack.weaponDurability = durability;
+            playerAttack.hasWeapon = true;
 
-            Debug.Log("Podniesiono broń: " + weaponName + 
-                      " | Damage: " + damage + 
-                      " | Durability: " + durability);
+            Debug.Log(
+                "Podniesiono broń: " + weaponName +
+                " | Damage: " + damage +
+                " | Durability: " + durability);
 
             Destroy(gameObject);
         }
