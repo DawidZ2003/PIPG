@@ -3,6 +3,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public GameObject[] weaponPickups;
+    public Animator animator;
 
     private bool playerNearby;
     private bool opened;
@@ -19,15 +20,26 @@ public class Chest : MonoBehaviour
     {
         opened = true;
 
+        // Uruchamia animację otwierania
+        animator.SetTrigger("Open");
+
+        Debug.Log("Skrzynia otwarta!");
+    }
+
+    // Wywoływane przez Animation Event
+    public void SpawnWeapon()
+    {
         int randomIndex = Random.Range(0, weaponPickups.Length);
 
         Instantiate(
             weaponPickups[randomIndex],
             transform.position + Vector3.right,
             Quaternion.identity);
+    }
 
-        Debug.Log("Skrzynia otwarta!");
-        
+    // Wywoływane przez Animation Event na końcu animacji
+    public void DestroyChest()
+    {
         Destroy(gameObject);
     }
 
